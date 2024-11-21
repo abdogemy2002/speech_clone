@@ -12,12 +12,12 @@ const SignUpPage = () => {
 
   const handleButtonClick = (formType) => {
     setActiveForm(formType);
-    setShowForm(true);
+    setShowForm(true); // إخفاء الأزرار عند الضغط
   };
 
   const goBack = () => {
     setActiveForm("");
-    setShowForm(false);
+    setShowForm(false); // إعادة إظهار الأزرار
   };
 
   return (
@@ -71,27 +71,37 @@ const SignUpPage = () => {
   );
 };
 
-
-// نموذج تسجيل الطفل
+// Patient Sign-Up Form
 const PatientSignUp = () => {
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
+      displayName: "",
+      phoneNumber: "",
       password: "",
+      userType: 0, // Patient user type
+      address: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("الاسم مطلوب"),
       email: Yup.string()
         .email("البريد الإلكتروني غير صالح")
         .required("البريد الإلكتروني مطلوب"),
+      displayName: Yup.string().required("الاسم مطلوب"),
+      phoneNumber: Yup.string()
+        .matches(/^\d{10,15}$/, "رقم الهاتف غير صالح")
+        .required("رقم الهاتف مطلوب"),
       password: Yup.string()
-        .min(6, "يجب أن تكون كلمة المرور 6 أحرف على الأقل")
+        .min(8, "يجب أن تكون كلمة المرور 8 أحرف على الأقل")
+        .matches(
+          /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+          "يجب أن تحتوي كلمة المرور على حرف واحد ورقم ورمز خاص على الأقل"
+        )
         .required("كلمة المرور مطلوبة"),
+      address: Yup.string().required("العنوان مطلوب"),
     }),
     onSubmit: (values) => {
       axios
-        .post("http://localhost:3000/patients", values)
+        .post("http://localhost:3000/users", values)
         .then(() => {
           toast.success("تم التسجيل بنجاح كطفل!");
         })
@@ -105,21 +115,6 @@ const PatientSignUp = () => {
     <form className="signup-form" onSubmit={formik.handleSubmit}>
       <h2>تسجيل الطفل</h2>
       <div className="mb-3">
-        <label>الاسم</label>
-        <input
-          type="text"
-          className="form-control"
-          name="name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="أدخل اسمك"
-        />
-        {formik.touched.name && formik.errors.name && (
-          <div className="error">{formik.errors.name}</div>
-        )}
-      </div>
-      <div className="mb-3">
         <label>البريد الإلكتروني</label>
         <input
           type="email"
@@ -132,6 +127,36 @@ const PatientSignUp = () => {
         />
         {formik.touched.email && formik.errors.email && (
           <div className="error">{formik.errors.email}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>الاسم</label>
+        <input
+          type="text"
+          className="form-control"
+          name="displayName"
+          value={formik.values.displayName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل اسمك"
+        />
+        {formik.touched.displayName && formik.errors.displayName && (
+          <div className="error">{formik.errors.displayName}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>رقم الهاتف</label>
+        <input
+          type="text"
+          className="form-control"
+          name="phoneNumber"
+          value={formik.values.phoneNumber}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل رقم هاتفك"
+        />
+        {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+          <div className="error">{formik.errors.phoneNumber}</div>
         )}
       </div>
       <div className="mb-3">
@@ -149,6 +174,21 @@ const PatientSignUp = () => {
           <div className="error">{formik.errors.password}</div>
         )}
       </div>
+      <div className="mb-3">
+        <label>العنوان</label>
+        <input
+          type="text"
+          className="form-control"
+          name="address"
+          value={formik.values.address}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل عنوانك"
+        />
+        {formik.touched.address && formik.errors.address && (
+          <div className="error">{formik.errors.address}</div>
+        )}
+      </div>
       <button type="submit" className="btn btn-primary w-100">
         تسجيل
       </button>
@@ -156,28 +196,39 @@ const PatientSignUp = () => {
   );
 };
 
-// نموذج تسجيل الطبيب
+// Doctor Sign-Up Form
 const DoctorSignUp = () => {
   const formik = useFormik({
     initialValues: {
-      name: "",
       email: "",
-      specialization: "",
+      displayName: "",
+      phoneNumber: "",
       password: "",
+      userType: 1, // Doctor user type
+      address: "",
+      specialization: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("الاسم مطلوب"),
       email: Yup.string()
         .email("البريد الإلكتروني غير صالح")
         .required("البريد الإلكتروني مطلوب"),
-      specialization: Yup.string().required("التخصص مطلوب"),
+      displayName: Yup.string().required("الاسم مطلوب"),
+      phoneNumber: Yup.string()
+        .matches(/^\d{10,15}$/, "رقم الهاتف غير صالح")
+        .required("رقم الهاتف مطلوب"),
       password: Yup.string()
-        .min(6, "يجب أن تكون كلمة المرور 6 أحرف على الأقل")
+        .min(8, "يجب أن تكون كلمة المرور 8 أحرف على الأقل")
+        .matches(
+          /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+          "يجب أن تحتوي كلمة المرور على حرف واحد ورقم ورمز خاص على الأقل"
+        )
         .required("كلمة المرور مطلوبة"),
+      address: Yup.string().required("العنوان مطلوب"),
+      specialization: Yup.string().required("التخصص مطلوب"),
     }),
     onSubmit: (values) => {
       axios
-        .post("http://localhost:3000/doctors", values)
+        .post("http://localhost:3000/users", values)
         .then(() => {
           toast.success("تم التسجيل بنجاح كطبيب!");
         })
@@ -191,21 +242,6 @@ const DoctorSignUp = () => {
     <form className="signup-form" onSubmit={formik.handleSubmit}>
       <h2>تسجيل الطبيب</h2>
       <div className="mb-3">
-        <label>الاسم</label>
-        <input
-          type="text"
-          className="form-control"
-          name="name"
-          value={formik.values.name}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="أدخل اسمك"
-        />
-        {formik.touched.name && formik.errors.name && (
-          <div className="error">{formik.errors.name}</div>
-        )}
-      </div>
-      <div className="mb-3">
         <label>البريد الإلكتروني</label>
         <input
           type="email"
@@ -218,6 +254,66 @@ const DoctorSignUp = () => {
         />
         {formik.touched.email && formik.errors.email && (
           <div className="error">{formik.errors.email}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>الاسم</label>
+        <input
+          type="text"
+          className="form-control"
+          name="displayName"
+          value={formik.values.displayName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل اسمك"
+        />
+        {formik.touched.displayName && formik.errors.displayName && (
+          <div className="error">{formik.errors.displayName}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>رقم الهاتف</label>
+        <input
+          type="text"
+          className="form-control"
+          name="phoneNumber"
+          value={formik.values.phoneNumber}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل رقم هاتفك"
+        />
+        {formik.touched.phoneNumber && formik.errors.phoneNumber && (
+          <div className="error">{formik.errors.phoneNumber}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>كلمة المرور</label>
+        <input
+          type="password"
+          className="form-control"
+          name="password"
+          value={formik.values.password}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل كلمة المرور"
+        />
+        {formik.touched.password && formik.errors.password && (
+          <div className="error">{formik.errors.password}</div>
+        )}
+      </div>
+      <div className="mb-3">
+        <label>العنوان</label>
+        <input
+          type="text"
+          className="form-control"
+          name="address"
+          value={formik.values.address}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          placeholder="أدخل عنوانك"
+        />
+        {formik.touched.address && formik.errors.address && (
+          <div className="error">{formik.errors.address}</div>
         )}
       </div>
       <div className="mb-3">
@@ -233,21 +329,6 @@ const DoctorSignUp = () => {
         />
         {formik.touched.specialization && formik.errors.specialization && (
           <div className="error">{formik.errors.specialization}</div>
-        )}
-      </div>
-      <div className="mb-3">
-        <label>كلمة المرور</label>
-        <input
-          type="password"
-          className="form-control"
-          name="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          placeholder="أدخل كلمة المرور"
-        />
-        {formik.touched.password && formik.errors.password && (
-          <div className="error">{formik.errors.password}</div>
         )}
       </div>
       <button type="submit" className="btn btn-primary w-100">

@@ -9,14 +9,15 @@
 }
 /* Define Kidzhood Arabic font */
 @font-face {
-  font-family: 'Kidzhood Arabic';
-  src: url('../assets/fonts/alfont_com_KidzhoodArabicDEMO-Light.ttf') format('truetype');
+  font-family: "Kidzhood Arabic";
+  src: url("../assets/fonts/alfont_com_KidzhoodArabicDEMO-Light.ttf")
+    format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'RTL Mocha Yemen Sadah';
-  src: url('../assets/fonts/RTL-MochaYemen-Sadah.otf') format('opentype');
+  font-family: "RTL Mocha Yemen Sadah";
+  src: url("../assets/fonts/RTL-MochaYemen-Sadah.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -24,12 +25,12 @@
 body {
   direction: rtl;
   margin: 0;
-  font-family: 'Kidzhood Arabic', sans-serif ;
+  font-family: "Kidzhood Arabic", sans-serif;
   background-color: var(--warm-beige);
   color: var(--charcoal-grey);
 }
-h2{
-  font-family: 'RTL Mocha Yemen Sadah', sans-serif !important;
+h2 {
+  font-family: "RTL Mocha Yemen Sadah", sans-serif !important;
 }
 
 .signup-page {
@@ -45,16 +46,16 @@ h2{
 }
 
 .big-image {
-  width: 90%;
-  height: 90%;
+  width: 45%;
+  aspect-ratio: 1;
   object-fit: cover;
-  position: absolute; 
-  top: 50%;  
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+  position: fixed; /* ثابتة عند التمرير */
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
   filter: brightness(0.85) saturate(1.2);
   animation: floatEffect 8s ease-in-out infinite;
-  filter: drop-shadow(0 0 70px rgba(255, 227, 142, 0.6)); 
+  filter: drop-shadow(0 0 70px rgba(255, 227, 142, 0.6));
 }
 
 .left-section-overlay {
@@ -63,7 +64,11 @@ h2{
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.5)
+  );
   z-index: 1;
 }
 .back-button {
@@ -86,22 +91,23 @@ h2{
 /* Right Section: Buttons and Forms */
 .right-section {
   margin: 0;
-  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* محاذاة المحتوى لأعلى */
   align-items: center;
   padding: 2rem;
   background: linear-gradient(135deg, var(--soft-yellow), var(--warm-beige));
   box-shadow: -10px 0 15px var(--shadow-color);
+  height: fit-content;
+  min-height: 100vh;
 }
+
 .dynamic-title {
   padding-bottom: 50px;
   text-align: center;
   margin-bottom: 20px;
   font-size: 2.3rem;
-  color:var(--teal-green);
-
+  color: var(--teal-green);
 }
 
 /* Buttons */
@@ -171,18 +177,23 @@ h2{
 .form-container {
   width: 100%;
   max-width: 420px;
-  
+  height: fit-content;
 }
 
 .signup-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
   padding: 2.5rem;
   border-radius: 12px;
-  background: #fff;
+  background: #ffffffd3;
   box-shadow: 0 6px 20px var(--shadow-color);
   transition: box-shadow 0.4s ease;
+}
+form.signup-form {
+  width: 100%;
+  margin-top: px;
+  max-width: 420px;
 }
 
 .signup-form:hover {
@@ -225,7 +236,7 @@ h2{
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: bold;
-  font-family: 'Kidzhood Arabic', sans-serif;
+  font-family: "Kidzhood Arabic", sans-serif;
   box-shadow: 0 4px 10px var(--shadow-color);
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
@@ -242,14 +253,15 @@ h2{
 }
 
 /* Bootstrap Utility Overrides */
-label,button{
-  font-family: 'Kidzhood Arabic', sans-serif;
+label,
+button {
+  font-family: "Kidzhood Arabic", sans-serif;
 }
 .form-control {
   border: 1.5px solid var(--charcoal-grey);
   border-radius: 8px;
   font-size: 1rem;
-  font-family: 'Kidzhood Arabic', sans-serif;
+  font-family: "Kidzhood Arabic", sans-serif;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -262,7 +274,8 @@ label,button{
   background-color: var(--teal-green);
   border: none;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
@@ -287,12 +300,20 @@ label,button{
 
   .right-section {
     flex: none;
-    height: 100vh;
+    height: vh;
     box-shadow: none;
+    background: linear-gradient(#ffe38ec5 40%, #fffaf0b7),
+      url("../assets/KHATWTNTK-trans.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+    filter: opacity(1);
   }
 
   .signup-form {
     padding: 2rem;
+    margin-top: 2.3rem;
   }
 }
 /* Initial state of the right section */
