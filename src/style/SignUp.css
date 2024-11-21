@@ -1,0 +1,351 @@
+:root {
+  --teal-green: #1c8a8a;
+  --bright-orange: #ff9900;
+  --warm-beige: #fffaf0;
+  --charcoal-grey: #2b2b2b;
+  --soft-yellow: #ffe38e;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --focus-color: rgba(28, 138, 138, 0.4);
+}
+/* Define Kidzhood Arabic font */
+@font-face {
+  font-family: 'Kidzhood Arabic';
+  src: url('../assets/fonts/alfont_com_KidzhoodArabicDEMO-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'RTL Mocha Yemen Sadah';
+  src: url('../assets/fonts/RTL-MochaYemen-Sadah.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  direction: rtl;
+  margin: 0;
+  font-family: 'Kidzhood Arabic', sans-serif ;
+  background-color: var(--warm-beige);
+  color: var(--charcoal-grey);
+}
+h2{
+  font-family: 'RTL Mocha Yemen Sadah', sans-serif !important;
+}
+
+.signup-page {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Left Section: Big Picture */
+.left-section {
+  flex: 1;
+  position: relative;
+}
+
+.big-image {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  position: absolute; 
+  top: 50%;  
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  filter: brightness(0.85) saturate(1.2);
+  animation: floatEffect 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 70px rgba(255, 227, 142, 0.6)); 
+}
+
+.left-section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--teal-green);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.back-button:hover {
+  color: var(--bright-orange);
+}
+
+/* Right Section: Buttons and Forms */
+.right-section {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--soft-yellow), var(--warm-beige));
+  box-shadow: -10px 0 15px var(--shadow-color);
+}
+.dynamic-title {
+  padding-bottom: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2.3rem;
+  color:var(--teal-green);
+
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.toggle-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 3px 8px var(--shadow-color);
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-button img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.toggle-button.patient {
+  background-color: var(--soft-yellow);
+  color: var(--teal-green);
+}
+
+.toggle-button.doctor {
+  background-color: var(--teal-green);
+  color: #fff;
+}
+
+.toggle-button.patient:hover {
+  background-color: var(--bright-orange);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.toggle-button.doctor:hover {
+  background-color: var(--bright-orange);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.toggle-button.active {
+  border: 2px solid var(--bright-orange);
+  transform: scale(1.1);
+}
+
+.toggle-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px var(--shadow-color);
+}
+
+/* Form Section */
+.form-container {
+  width: 100%;
+  max-width: 420px;
+  
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 6px 20px var(--shadow-color);
+  transition: box-shadow 0.4s ease;
+}
+
+.signup-form:hover {
+  box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.signup-form h2 {
+  color: var(--teal-green);
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.signup-form label {
+  font-weight: bold;
+  color: var(--charcoal-grey);
+}
+
+.signup-form input {
+  padding: 0.8rem;
+  border: 1.5px solid var(--charcoal-grey);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.signup-form input:focus {
+  border-color: var(--teal-green);
+  box-shadow: 0 0 8px var(--focus-color);
+  outline: none;
+}
+
+.signup-form button {
+  background-color: var(--bright-orange);
+  color: var(--warm-beige);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: 'Kidzhood Arabic', sans-serif;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.signup-form button:hover {
+  background-color: var(--teal-green);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px var(--shadow-color);
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* Bootstrap Utility Overrides */
+label,button{
+  font-family: 'Kidzhood Arabic', sans-serif;
+}
+.form-control {
+  border: 1.5px solid var(--charcoal-grey);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Kidzhood Arabic', sans-serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--teal-green);
+  box-shadow: 0 0 8px var(--focus-color);
+}
+
+.btn-primary {
+  background-color: var(--teal-green);
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--bright-orange);
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.bg-light {
+  background-color: var(--soft-yellow) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .signup-page {
+    flex-direction: column;
+  }
+
+  .left-section {
+    display: none;
+  }
+
+  .right-section {
+    flex: none;
+    height: 100vh;
+    box-shadow: none;
+  }
+
+  .signup-form {
+    padding: 2rem;
+  }
+}
+/* Initial state of the right section */
+.signup-page {
+  display: flex;
+  height: 100vh;
+  position: relative;
+}
+
+.right-section {
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.signup-page .button-container {
+  margin: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* When form is shown */
+.signup-page.show-form .button-container {
+  transform: translateY(-150%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.signup-page.show-form .form-container {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Buttons */
+.button-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.6s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Form Container */
+.form-container {
+  transform: translateY(150%);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.form-container.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}

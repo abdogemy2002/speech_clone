@@ -1,0 +1,16 @@
+:root {
+    /* Main Colors */
+    --teal-green: #1c8a8a; /* Slightly brighter teal */
+    --bright-orange: #ff9900; /* More vibrant orange */
+  
+    /* Complementary Colors */
+    --soft-yellow: #ffe38e; /* Soft sunny yellow */
+    --sky-blue: #73d0f4; /* Cheerful and bright blue */
+    --bright-pink: #ff85b3; /* Fun and friendly pink */
+    --mint-green: #8be3c4; /* Refreshing mint */
+  
+    /* Neutral Colors */
+    --warm-beige: #fffaf0; /* Softer and brighter beige */
+    --charcoal-grey: #2b2b2b; /* Richer and softer grey */
+  }
+  

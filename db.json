@@ -1,0 +1,51 @@
+{
+  "patients": [
+    {
+      "id": "cfcd",
+      "name": "sam",
+      "email": "d2811200322@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "0c4e",
+      "name": "sam",
+      "email": "d2811200322@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "3bb1",
+      "name": "gemy",
+      "email": "d2811200322@gmail.com",
+      "password": "123123"
+    },
+    {
+      "id": "cccf",
+      "name": "محمد",
+      "email": "d2811200322@gmail.com",
+      "password": "123123"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "5b50",
+      "name": "ali",
+      "email": "d2811200322@gmail.com",
+      "specialization": "دكتور حمير ",
+      "password": "123123"
+    },
+    {
+      "id": "1b65",
+      "name": "ali",
+      "email": "d2811200322@gmail.com",
+      "specialization": "دكتور حمير ",
+      "password": "123123"
+    },
+    {
+      "id": "1052",
+      "name": "sam",
+      "email": "d2811200322@gmail.com",
+      "specialization": "دكتور حمير ",
+      "password": "123123"
+    }
+  ]
+}
