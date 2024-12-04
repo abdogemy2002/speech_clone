@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "Kidzhood Arabic";
+  src: url("../assets/fonts/alfont_com_KidzhoodArabicDEMO-Light.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "RTL Mocha Yemen Sadah";
+  src: url("../assets/fonts/RTL-MochaYemen-Sadah.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Basic navbar styling */
+.custom-navbar {
+  background-color: #ffffff; /* White background */
+  position: relative;
+  color: #2b2b2b;
+  font-family: "Kidzhood Arabic", sans-serif;
+  font-size: 1rem;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.navbar-brand {
+  color: #205e75; /* Dark blue color */
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  width: 120px;  /* Set the width of the logo */
+  height: auto;  /* Maintain aspect ratio */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  filter: drop-shadow(0 0 10px #ffe7cd); /* Drop shadow effect */
+}
+
+/* Toggle button for mobile */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #205e75;
+  display: block;
+  margin: 5px 0;
+}
+
+/* Navbar links container */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color:#fca43c; /* Orange background */
+  padding: 5px 20px;
+  border-radius: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease;
+  color: #2b2b2b;
+  font-family: "Kidzhood Arabic", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+
+}
+
+.navbar-links a:hover {
+  background-color: #205e75; /* Blue background on hover */
+  color: white;
+}
+
+.navbar-btn {
+  background-color: #fca43c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-btn:hover {
+  background-color: #205e75;
+}
+
+/* User Section */
+.navbar-user {
+  position: relative;
+}
+
+.navbar-user-name {
+  background-color:#fca43c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.navbar-user-name:hover {
+  background-color: #205e75;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  color: #205e75;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 150px;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  padding: 8px;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: none;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links a {
+    padding: 12px 20px;
+  }
+}

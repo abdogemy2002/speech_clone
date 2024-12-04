@@ -24,22 +24,23 @@ const SignUpPage = () => {
     <div className={`signup-page ${showForm ? "show-form" : ""}`}>
       <div className="left-section col-md-6">
         <img
-          src="src/assets/KHATWTNTK-trans.png"
+          src="src/assets/KHATWTNTK-logo.svg"
           alt="مرحباً"
           className="big-image"
         />
       </div>
 
-      <div className="right-section col-md-6 bg-light">
+      <div className="right-section col-md-6 ">
         {showForm && (
           <button className="back-button" onClick={goBack}>
             &#8592; رجوع
           </button>
         )}
 
-        {!showForm && <h2 className="dynamic-title">حساب جديد</h2>}
 
         <div className={`button-container ${showForm ? "hidden" : ""}`}>
+        {!showForm && <h2 className="dynamic-title">حساب جديد</h2>}
+<div className="d-flex flex-row gap-4">
           <button
             className={`toggle-button patient ${
               activeForm === "patient" ? "active-strip" : ""
@@ -58,6 +59,7 @@ const SignUpPage = () => {
             <img src="src/assets/doctor-icon.png" alt="رمز الطبيب" />
             تسجيل طبيب
           </button>
+          </div>
         </div>
 
         <div className={`form-container ${showForm ? "visible" : ""}`}>

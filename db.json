@@ -25,8 +25,8 @@
       "password": "123123"
     },
     {
-      "id": "5893",
-      "name": "ali ",
+      "id": "dc4b",
+      "name": "gemy",
       "email": "d2811200322@gmail.com",
       "password": "123123"
     }
@@ -51,13 +51,6 @@
       "name": "sam",
       "email": "d2811200322@gmail.com",
       "specialization": "دكتور حمير ",
-      "password": "123123"
-    },
-    {
-      "id": "ae0a",
-      "name": "sam",
-      "email": "d2811200322@gmail.com",
-      "specialization": "دكتور ",
       "password": "123123"
     }
   ]

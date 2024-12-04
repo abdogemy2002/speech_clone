@@ -1,0 +1,128 @@
+/* General Reset */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafc;
+  }
+  
+  /* Header */
+  .navbar {
+    background-color: #205e75 !important;
+    padding: 1rem 0;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff !important;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff !important;
+    font-size: 1rem;
+    margin: 0 0.5rem;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ff7f01 !important;
+  }
+  
+  button.ms-2 {
+    background-color: #ff7f01 !important;
+    border-color: #ff7f01 !important;
+    color: #fff !important;
+    transition: background-color 0.3s;
+  }
+  
+  button.ms-2:hover {
+    background-color: #f06d00 !important;
+  }
+  
+  /* Hero Section */
+  .bg-light {
+    background-color: #e5f3f8 !important;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+    color: #205e75;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+    color: #505a60;
+  }
+  
+  .hero-section button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  
+  button.outline-primary {
+    background-color: transparent !important;
+    border: 2px solid #ff7f01 !important;
+    color: #ff7f01 !important;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button.outline-primary:hover {
+    background-color: #ff7f01 !important;
+    color: #fff !important;
+  }
+  
+  /* Features Section */
+  #features h2 {
+    color: #205e75;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    border: none;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff7f01;
+  }
+  
+  .card-text {
+    color: #505a60;
+  }
+  
+  /* Testimonials Section */
+  blockquote {
+    font-size: 1.1rem;
+    color: #205e75;
+    font-style: italic;
+  }
+  
+  .blockquote-footer {
+    font-size: 0.9rem;
+    color: #505a60;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #205e75;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
